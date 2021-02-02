@@ -1,0 +1,16 @@
+server:
+    port:7000
+eureka:
+    instance:
+        leaseRenewalIntervalInSeconds:5
+        leaseExpirationDurationInSeconds:2
+    client:        
+        serviceUrl:
+           defaultZone:http://localhost:8761/eureka/
+           
+zuul:
+    ignoredServices: '*'
+    routes: 
+        servicio-empleados:
+            path: /empleados/**  #Path that will be intercepted
+            serviceId: servicio-empleados  #( o url)
